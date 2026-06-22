@@ -29,12 +29,22 @@ module tt_um_hydrocomms (
   assign uio_out = tx_sample;
   assign uio_oe  = {8{tx_busy & ~loopback_en}};
 
+  wire       spi_sclk  = ui_in[0];
+  wire       spi_mosi  = ui_in[1];
+  wire       spi_cs_n  = ui_in[2];
+  wire       spi_miso;
+
+  // Reset combines external reset with soft reset register
+  wire       soft_rst;
+  wire       rst_int = rst_n & ~soft_rst;
+
   // List all unused inputs to prevent warnings
   wire _unused = &{ena, ui_in[7:3], uio_in[0], tx_sample_valid, 1'b0};
 
   // SPI 
   wire [7:0] spi_rx_data;
   wire       spi_rx_valid;
+  wire       spi_cs_active;
   wire [7:0] spi_tx_data;
 
   spi u_spi (
