@@ -7,7 +7,7 @@
 
 `default_nettype none
 
-module fsk_rx (
+module rx (
     input  wire              clk,
     input  wire              rst_n,
     input  wire              sample_valid,

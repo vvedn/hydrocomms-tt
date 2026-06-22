@@ -8,7 +8,7 @@
 
 `default_nettype none
 
-module crc8 (
+module crc (
     input  wire       clk,
     input  wire       rst_n,
     input  wire       clear,     // synchronous clear to 0xFF
