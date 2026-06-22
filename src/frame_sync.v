@@ -36,7 +36,7 @@ module frame_sync (
   reg        crc_clear;
   wire       crc_feed_valid = (state == S_PAYLOAD) && bit_valid;
 
-  crc8 u_crc (
+  crc u_crc (
     .clk       (clk),
     .rst_n     (rst_n),
     .clear     (crc_clear),
