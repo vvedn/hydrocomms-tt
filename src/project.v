@@ -57,7 +57,8 @@ module tt_um_hydrocomms (
     .tx_data   (spi_tx_data),
     .rx_data   (spi_rx_data),
     .rx_valid  (spi_rx_valid),
-    .tx_load   ()
+    .tx_load   (),
+    .cs_active (spi_cs_active)
   );
 
    // SPI command decoder 
